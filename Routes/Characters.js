@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/characters", async (req, res) => {
     const apiKey = process.env.API_KEY;
     try{
-        req.query.title?title=req.query.title: title = "";
+        req.query.name?name=req.query.name: name = "";
         req.query.limit?limit=req.query.limit: limit = 100;
         req.query.skip? skip=req.query.skip: skip = 0;
         const character = await axios.get(
