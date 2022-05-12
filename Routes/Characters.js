@@ -12,7 +12,7 @@ router.get("/characters", async (req, res) => {
         `https://lereacteur-marvel-api.herokuapp.com/characters`,
         {
             params: {
-              apiKey: process.env.MARVEL_API_KEY,
+              apiKey: process.env.API_KEY,
               name: req.query.name,
               skip: (req.query.page - 1) * 100,
             },
