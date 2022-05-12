@@ -18,8 +18,6 @@ router.get("/characters", async (req, res) => {
             },
         }
         )
-        // &title=${title}&limit=${limit}&skip=${skip}`);
-        console.log("sdfdsd",character.data);
         res.status(200).json(character.data);
     }catch(error){
         res.status(400).json({message: error.message});
