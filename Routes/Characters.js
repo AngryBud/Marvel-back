@@ -3,11 +3,7 @@ const axios = require("axios");
 const router = express.Router();
 
 router.get("/characters", async (req, res) => {
-    // const apiKey = process.env.API_KEY;
     try{
-        // req.query.name?name=req.query.name: name = "";
-        // req.query.limit?limit=req.query.limit: limit = 100;
-        // req.query.skip? skip=req.query.skip: skip = (req.query.page -1) * 100;
         const character = await axios.get(
         `https://lereacteur-marvel-api.herokuapp.com/characters`,
         {
@@ -15,6 +11,7 @@ router.get("/characters", async (req, res) => {
               apiKey: process.env.API_KEY,
               name: req.query.name,
               skip: (req.query.page - 1) * 100,
+              limit: req.query.limit
             },
         }
         )
@@ -29,8 +26,6 @@ router.get("/character/:characterId", async (req, res) => {
     const apiKey = process.env.API_KEY;
     const charId = req.params.characterId;
     try{
-        // const {title, limit, skip} = req.query;
-        // const title=req.query.tit
         const character = await axios.get(
         `https://lereacteur-marvel-api.herokuapp.com/character/${charId}?apiKey=${apiKey}`);
         // &title=${title}&limit=${limit}&skip=${skip}`);
