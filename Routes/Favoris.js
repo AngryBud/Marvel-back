@@ -5,7 +5,7 @@ const Fav = require("../models/Fav");
 const User = require("../models/User");
 const validateToken = require("../middlewares/validateToken");
 
-router.post("/favoris/add",validateToken, async(req,res) =>{
+router.post("/favoris/add", async(req,res) =>{
     
     try{
         const {fav_name,fav_description, fav_image} = req.fields;
