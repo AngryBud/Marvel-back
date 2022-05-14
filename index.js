@@ -5,7 +5,6 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const comicsRoute = require("./Routes/Comics");
-const mongoose = require("mongoose");
 const charactersRoute = require("./Routes/Characters");
 const usersRoute = require("./Routes/Users");
 
