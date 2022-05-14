@@ -8,7 +8,7 @@ const cors = require("cors");
 const CharactersRoute = require("./Routes/Characters");
 const ComicsRoute = require("./Routes/Comics");
 
-const UserRoute = require("./Routes/User");
+const UsersRoute = require("./Routes/User");
 const FavRoute = require("./Routes/Fav");
 
 app.use(formidable());
@@ -16,7 +16,7 @@ app.use(express());
 app.use(cors());
 app.use(ComicsRoute);
 app.use(CharactersRoute);
-app.use(UserRoute);
+app.use(UsersRoute);
 app.use(FavRoute);
 
 mongoose.connect(process.env.MONGODB_URI, {
