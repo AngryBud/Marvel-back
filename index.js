@@ -8,7 +8,7 @@ const cors = require("cors");
 const CharactersRoute = require("./Routes/Characters");
 const ComicsRoute = require("./Routes/Comics");
 
-const UsersRoute = require("./Routes/User");
+const UserRoute = require("./Routes/User");
 const FavRoute = require("./Routes/Fav");
 
 app.use(formidable());
