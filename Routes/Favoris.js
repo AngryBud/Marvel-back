@@ -8,13 +8,13 @@ const validateToken = require("../middlewares/validateToken");
 router.post("/favoris/add", async(req,res) =>{
     
     try{
-        const {fav_name,fav_description, fav_image} = req.fields;
+        const {name,description, image} = req.fields;
 
         const ownerExist = await User.findOne({token: req.headers.authorization.replace("Bearer ", "")})
         const newFavori = new Fav ({
-            name: fav_name,
-            description: fav_description,
-            image: fav_image,
+            name: name,
+            description: description,
+            image: image,
 
             owner: ownerExist
 
