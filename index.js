@@ -4,8 +4,10 @@ const formidable=require("express-formidable");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const comicsRoute = require("./Routes/comics");
+
 const charactersRoute = require("./Routes/characters");
+const comicsRoute = require("./Routes/comics");
+
 const userRoute = require("./Routes/user");
 const favRoute = require("./Routes/fav");
 
