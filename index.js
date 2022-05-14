@@ -4,26 +4,23 @@ const formidable=require("express-formidable");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const comicsRoute = require("./Routes/Comics");
-const charactersRoute = require("./Routes/Characters");
-const usersRoute = require("./Routes/Users");
+const comicsRoute = require("./Routes/comics");
+const charactersRoute = require("./Routes/characters");
+const userRoute = require("./Routes/user");
+const favRoute = require("./Routes/fav");
 
 app.use(formidable());
 app.use(express());
 app.use(cors());
 app.use(comicsRoute);
 app.use(charactersRoute);
-app.use(usersRoute);
+app.use(userRoute);
+app.use(favRoute);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
-
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
 
 app.get("/", (req, res) => {res.status(200).json("Bienvenue sur l'Api Marvel")});
 
