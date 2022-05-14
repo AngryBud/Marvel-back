@@ -5,19 +5,19 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const charactersRoute = require("./Routes/characters");
-const comicsRoute = require("./Routes/comics");
+const CharactersRoute = require("./Routes/Characters");
+const ComicsRoute = require("./Routes/Comics");
 
-const userRoute = require("./Routes/user");
-const favRoute = require("./Routes/fav");
+const UserRoute = require("./Routes/User");
+const FavRoute = require("./Routes/Fav");
 
 app.use(formidable());
 app.use(express());
 app.use(cors());
-app.use(comicsRoute);
-app.use(charactersRoute);
-app.use(userRoute);
-app.use(favRoute);
+app.use(ComicsRoute);
+app.use(CharactersRoute);
+app.use(UserRoute);
+app.use(FavRoute);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
