@@ -4,6 +4,7 @@ const Favori = mongoose.model("Favori", {
   name: String,
   description: String,
   image: String,
+//   owner: String
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
