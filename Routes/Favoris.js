@@ -3,16 +3,21 @@ const express = require("express");
 const router = express.Router();
 const Fav = require("../models/Fav");
 const User = require("../models/User");
-// const validateToken = require("../middlewares/validateToken");
 
+router.post("/favoris", async(req, res)=>{
+    try{
+
+        const fav = await Fav.find({token: req.fields.token});
+        return res.status(200).json(fav);
+        
+    }catch(error){
+        return res.status(400).json({error: {message: error.message}});
+    }
+})
 router.post("/favoris/add", async(req,res) =>{
     
     try{
-        // console.log(req.fields)
         const {name,description, image, token} = req.fields;
-        // console.log("toujours la");
-        // const ownerExist = await User.findOne({token: req.headers.authorization.replace("Bearer ", "")})
-        // console.log("alala", ownerExist);
         const newFavori = new Fav ({
             name: name,
             description: description,
@@ -21,9 +26,6 @@ router.post("/favoris/add", async(req,res) =>{
             token: token,
 
         });
-        // console.log("on passe la");
-        // console.log("newfav ",newFavori);
-       
         await newFavori.save();
         const ret = 
                 {_id: newFavori._id,
