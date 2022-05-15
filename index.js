@@ -28,4 +28,4 @@ app.get("/", (req, res) => {res.status(200).json("Bienvenue sur l'Api Marvel")})
 
 app.get("*", (req,res)=>{res.status(200).json("Page not found")});
 
-app.listen(4000, () => console.log("server started"));
+app.listen(process.env.PORT, () => console.log("server started"));
